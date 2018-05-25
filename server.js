@@ -11,6 +11,7 @@ var emailController  = require('./email');
 
 app.post('/sendEmailChatFuel', async (req, res) => {
 
+
   if (!req.query.email || !req.query.event_coupon || !req.query.event_name || !req.query.event_url) {
     var chatFuelMSG = {
       "messages": [
@@ -36,7 +37,7 @@ app.post('/sendEmailChatFuel', async (req, res) => {
   }
 
   try {
-    emailController.sendCouponEmail(req.query.event_coupon, req.query.event_name, req.query.event_url, req.query.email);        /*event_coupon, event_name, event_url, email_to*/
+    emailController.sendCouponEmail(req.query.text_template ,req.query.event_coupon, req.query.event_name, req.query.event_url, req.query.email);        /*event_coupon, event_name, event_url, email_to*/
 
     var chatFuelMSG = {
       "messages": [

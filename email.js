@@ -4,7 +4,7 @@ var fs = require('fs');
 var path = require('path');
 
 
-sendCouponEmail = async (event_coupon, event_name, event_url, email_to) => {
+sendCouponEmail = async (text_template, event_coupon, event_name, event_url, email_to) => {
 
     var htmlPath = path.join(__dirname, 'email_templates', `${event_coupon}.html`);
     var emailTemplateHTML = fs.readFileSync(htmlPath, 'utf8');
@@ -19,13 +19,14 @@ sendCouponEmail = async (event_coupon, event_name, event_url, email_to) => {
     }));
 
     var emailTemplateText;
-    var emailTemplateHTML;
     var emailSubject;
 
     emailSubject = `Cupom de Desconto - VIVA Startups - ${event_name}`;
 
     emailTemplateText = `Clique no link abaixo para acessar o Cupom de Desconto.\n\n`;
     emailTemplateText = emailTemplateText + `${event_url}\n\n`;
+
+    /*emailTemplateHTML = text_template;*/
 
     var mailOptions = {
         from: `NO-REPLY VIVA Startups <${process.env.APP_MAIL}>`,
