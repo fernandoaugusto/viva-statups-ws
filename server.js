@@ -45,7 +45,7 @@ app.post('/sendEmailChatFuel', async (req, res) => {
           "text": `O email para ${req.query.email} foi enviado com sucesso!`
         },
         {
-          "text": `Confira em instantes a sua Caixa de Entrada ou na Caixa de Spam.`
+          "text": `Confira em instantes a sua Caixa de Entrada ou Spam.`
         }
       ]
     }
